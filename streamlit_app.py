@@ -1,3 +1,5 @@
+pip install --upgrade streamlit
+
 from collections import namedtuple
 import altair as alt
 import math
@@ -14,7 +16,7 @@ if st.button('Say hello'):
 else:
     st.write('Goodbye')
 
-with st.form:
+with st.form(key='my_form'):
     #st.header('This is some header.')
     st.subheader('Upload your Excel files')
     st.text('Upload excel files with only one column, even if you put multiple columns only the first one will be used')
