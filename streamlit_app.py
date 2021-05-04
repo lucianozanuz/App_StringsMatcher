@@ -1,5 +1,3 @@
-pip install --upgrade streamlit
-
 from collections import namedtuple
 import altair as alt
 import math
