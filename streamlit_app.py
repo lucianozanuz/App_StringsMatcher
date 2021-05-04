@@ -11,7 +11,7 @@ Texto explicativo em markdown
 
 #st.header('This is some header.')
 st.subheader('Upload your Excel files')
-st.text('This is some text.')
+st.text('Upload excel files with only one column, even if you put multiple columns only the first one will be used')
 file_lookup = st.file_uploader("Lookup list", help="List with values to be matched, in the Left-join that's the left side")
 file_match = st.file_uploader("Match list", help="List with values to match with, in the Left-join that's the right side")
 
