@@ -9,6 +9,11 @@ import streamlit as st
 Texto explicativo em markdown
 """
 
+if st.button('Say hello'):
+    st.write('Why hello there')
+else:
+    st.write('Goodbye')
+
 with st.form(key='my_form'):
     #st.header('This is some header.')
     st.subheader('Upload your Excel files')
