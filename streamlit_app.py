@@ -9,8 +9,13 @@ import streamlit as st
 Texto explicativo em markdown
 """
 
-uploaded_file = st.file_uploader("Choose a file", help="ajuda") #Lookup list
+st.text('This is some text.')
+st.header('This is some header.')
+st.subheader('This is some subheader.')
+file_lookup = st.file_uploader("Lookup list", help="List with values to be matched, in the Left-join that's the left side")
+file_match = st.file_uploader("Match list", help="List with values to match with, in the Left-join that's the right side")
 
+st.subheader('This is some subheader.')
 threshold = st.slider("Similarity threshold", 0.0, 1.0, 0.7, help="Minimum similarity score to return, it goes from 0 to 1. If 1 it works exactly like a Left-join or Vlookup")
 top_matches = st.number_input("Enter a number", value=1, help="Maximum number of matches to return. If 1 it shows only the best match, if greater than 1 it shows multiple matches")
 
