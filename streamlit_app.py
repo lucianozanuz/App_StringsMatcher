@@ -34,7 +34,7 @@ if st.button('Submit'):
 
     if file_lookup is not None:
         dataframe = pd.read_excel(file_lookup["dtf_lookup"])
-        "st.write(dataframe)
+        #st.write(dataframe)
         st.write("entrou")
     else:
         st.write('aqui')
