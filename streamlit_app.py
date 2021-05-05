@@ -27,8 +27,10 @@ top = st.number_input("Enter a number", value=1, help="Maximum number of matches
 if st.button('Submit'):
     st.write(f'threshold = {threshold}')
    
-    dtf_lookup = pd.read_excel(flask.request.files["dtf_lookup"])
-    dtf_match = pd.read_excel(flask.request.files["dtf_match"])
+    dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
+    dtf_match = pd.read_excel(file_match["dtf_match"])
+    #dtf_lookup = pd.read_excel(flask.request.files["dtf_lookup"])
+    #dtf_match = pd.read_excel(flask.request.files["dtf_match"])
     #threshold = float(flask.request.form["threshold"])
     #top = 1 if flask.request.form["top"].strip() == "" else int(flask.request.form["top"])
     #app.logger.warning("--- Inputs Received ---")
