@@ -1,4 +1,5 @@
 from model.string_matcher import StringMatcher
+import base64
 import pandas as pd
 import streamlit as st
 
@@ -39,34 +40,19 @@ if st.button('Submit'):
         model = StringMatcher(dtf_lookup, dtf_match)
         dtf_out = model.vlookup(threshold=threshold, top=top)
         xlsx_out = model.write_excel(dtf_out)        
+        st.markdown(get_table_download_link(df), unsafe_allow_html=True)
         dtf_out
-        
 else:
     st.write('')
 
-    
-    
-    
-import base64
-
-st.header("File Download - A Workaround for small data")
-
-text = """\
-    There is currently (20191204) no official way of downloading data from Streamlit. See for
-    example [Issue 400](https://github.com/streamlit/streamlit/issues/400)
-
-    But I discovered a workaround
-    [here](https://github.com/holoviz/panel/issues/839#issuecomment-561538340).
-
-    It's based on the concept of
-    [HTML Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
-
-    You can try it out below for a dataframe csv file download.
-
-    The methodology can be extended to other file types. For inspiration see
-    [base64.guru](https://base64.guru/converter/encode/file)
+def get_table_download_link(df):
+    """Generates a link allowing the data in a given panda dataframe to be downloaded
+    in:  dataframe
+    out: href string
     """
-st.markdown(text)
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+    href = f'<a href="data:file/csv;base64,{b64}">Download csv file</a>'
 
 data = [(1, 2, 3)]
 # When no file name is given, pandas returns the CSV as a string, nice.
