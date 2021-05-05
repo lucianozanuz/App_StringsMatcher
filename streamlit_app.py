@@ -33,7 +33,8 @@ if st.button('Submit'):
     st.write(f'threshold = {threshold}')
 
     if file_lookup is not None:
-        dataframe = pd.read_excel(file_lookup["dtf_lookup"])
+        file_lookup
+        #dataframe = pd.read_excel(file_lookup["dtf_lookup"])
         #st.write(dataframe)
         st.write("entrou")
     else:
