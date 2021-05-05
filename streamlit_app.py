@@ -49,7 +49,7 @@ if st.button('Submit'):
         model = StringMatcher(dtf_lookup, dtf_match)
         dtf_out = model.vlookup(threshold=threshold, top=top)
         xlsx_out = model.write_excel(dtf_out)        
-        st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+        st.markdown(get_table_download_link(dtf_out), unsafe_allow_html=True)
         dtf_out
         
         # When no file name is given, pandas returns the CSV as a string, nice.
