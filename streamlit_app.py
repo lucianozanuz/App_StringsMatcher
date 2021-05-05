@@ -15,7 +15,7 @@ def get_table_download_link(df):
     
 """
 # Strings Matcher
-Texto explicativo em markdown
+Using the *pairwise cosine similarity* technique
 """
 
 # form ainda não disponível na cloud
