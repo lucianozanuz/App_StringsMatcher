@@ -24,11 +24,22 @@ st.subheader('Parâmetros')
 threshold = st.slider("Similarity threshold", 0.0, 1.0, 0.7, help="Minimum similarity score to return, it goes from 0 to 1. If 1 it works exactly like a Left-join or Vlookup")
 top = st.number_input("Enter a number", value=1, help="Maximum number of matches to return. If 1 it shows only the best match, if greater than 1 it shows multiple matches")
 
+
+
+
+
+
 if st.button('Submit'):
     st.write(f'threshold = {threshold}')
    
-    dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
-    dtf_match = pd.read_excel(file_match["dtf_match"])
+    dataframe = pd.read_csv(file_lookup)
+    st.write(dataframe)
+
+    #dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
+    #dtf_match = pd.read_excel(file_match["dtf_match"])
+       
+    
+    
     #dtf_lookup = pd.read_excel(flask.request.files["dtf_lookup"])
     #dtf_match = pd.read_excel(flask.request.files["dtf_match"])
     #threshold = float(flask.request.form["threshold"])
