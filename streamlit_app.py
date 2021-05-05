@@ -31,9 +31,12 @@ top = st.number_input("Enter a number", value=1, help="Maximum number of matches
 
 if st.button('Submit'):
     st.write(f'threshold = {threshold}')
-   
-    dataframe = pd.read_excel(file_lookup["dtf_lookup"])
-    st.write(dataframe)
+
+    if file_lookup is not None:
+        dataframe = pd.read_excel(file_lookup["dtf_lookup"])
+        st.write(dataframe)
+    else
+        st.write('aqui')
 
     #dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
     #dtf_match = pd.read_excel(file_match["dtf_match"])
