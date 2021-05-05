@@ -32,7 +32,7 @@ top = st.number_input("Enter a number", value=1, help="Maximum number of matches
 if st.button('Submit'):
     st.write(f'threshold = {threshold}')
    
-    dataframe = pd.read_csv(file_lookup["dtf_lookup"])
+    dataframe = pd.read_excel(file_lookup["dtf_lookup"])
     st.write(dataframe)
 
     #dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
