@@ -9,26 +9,29 @@ import streamlit as st
 Texto explicativo em markdown
 """
 
-if st.button('Say hello'):
-    st.write('Why hello there')
-else:
-    st.write('Goodbye')
+# form ainda não disponível na cloud
+#with st.form(key='my_form'):
+#    conteúdo do form
+#    submit_button = st.form_submit_button(label='Submit')
+#if submit_button:
+#    st.write(f'threshold = {threshold}')
 
-with st.form(key='my_form'):
-    #st.header('This is some header.')
-    st.subheader('Upload your Excel files')
-    st.text('Upload excel files with only one column, even if you put multiple columns only the first one will be used')
-    file_lookup = st.file_uploader("Lookup list", help="List with values to be matched, in the Left-join that's the left side")
-    file_match = st.file_uploader("Match list", help="List with values to match with, in the Left-join that's the right side")
+#st.header('This is some header.')
+st.subheader('Upload your Excel files')
+st.text('Upload excel files with only one column, even if you put multiple columns only the first one will be used')
+file_lookup = st.file_uploader("Lookup list", help="List with values to be matched, in the Left-join that's the left side")
+file_match = st.file_uploader("Match list", help="List with values to match with, in the Left-join that's the right side")
 
-    st.subheader('Parâmetros')
-    threshold = st.slider("Similarity threshold", 0.0, 1.0, 0.7, help="Minimum similarity score to return, it goes from 0 to 1. If 1 it works exactly like a Left-join or Vlookup")
-    top_matches = st.number_input("Enter a number", value=1, help="Maximum number of matches to return. If 1 it shows only the best match, if greater than 1 it shows multiple matches")
+st.subheader('Parâmetros')
+threshold = st.slider("Similarity threshold", 0.0, 1.0, 0.7, help="Minimum similarity score to return, it goes from 0 to 1. If 1 it works exactly like a Left-join or Vlookup")
+top_matches = st.number_input("Enter a number", value=1, help="Maximum number of matches to return. If 1 it shows only the best match, if greater than 1 it shows multiple matches")
 
-    submit_button = st.form_submit_button(label='Submit')
+submit_button = st.form_submit_button(label='Submit')
     
-if submit_button:
+if st.button('Submit'):
     st.write(f'threshold = {threshold}')
+else:
+    st.write('')
     
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
