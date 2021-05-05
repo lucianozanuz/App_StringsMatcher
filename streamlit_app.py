@@ -14,7 +14,7 @@ def get_table_download_link(df):
     st.write('AQUI 3')
     st.write(href)
     st.write('AQUI 4')
-
+    return href
     
 """
 # Strings Matcher
