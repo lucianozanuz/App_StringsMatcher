@@ -28,36 +28,28 @@ if st.button('Submit'):
     st.write(f'threshold = {threshold}')
 
     if file_lookup is not None:
-        file_lookup
-        
-        #bytes_data = file_lookup.getvalue()
-        #st.write(bytes_data)
-
-        dataframe = pd.read_excel(file_lookup)
-        dataframe = pd.read_excel(file_lookup['dtf_lookup'])
-        st.write("entrou")
-        st.write(dataframe)
+        dtf_lookup = pd.read_excel(file_lookup)
     else:
-        st.write('aqui')
+        st.write('file_lookup empty')
 
     if file_match is not None:
-        file_match
+        dtf_match = pd.read_excel(file_match)
     else:
-        st.write('aqui 2')
+        st.write('file_match empty')
         
-    #dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
-    #dtf_match = pd.read_excel(file_match["dtf_match"])
-       
-    #dtf_lookup = pd.read_excel(flask.request.files["dtf_lookup"])
-    #dtf_match = pd.read_excel(flask.request.files["dtf_match"])
-    #threshold = float(flask.request.form["threshold"])
-    #top = 1 if flask.request.form["top"].strip() == "" else int(flask.request.form["top"])
-    #app.logger.warning("--- Inputs Received ---")
+    if file_lookup is not None and file_match is not None:
+        #dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
+        #dtf_match = pd.read_excel(file_match["dtf_match"])
 
-    ## match
-    model = StringMatcher(dtf_lookup, dtf_match)
-    dtf_out = model.vlookup(threshold=threshold, top=top)
-    xlsx_out = model.write_excel(dtf_out)
-    
+        #dtf_lookup = pd.read_excel(flask.request.files["dtf_lookup"])
+        #dtf_match = pd.read_excel(flask.request.files["dtf_match"])
+        #threshold = float(flask.request.form["threshold"])
+        #top = 1 if flask.request.form["top"].strip() == "" else int(flask.request.form["top"])
+        #app.logger.warning("--- Inputs Received ---")
+
+        ## match
+        model = StringMatcher(dtf_lookup, dtf_match)
+        dtf_out = model.vlookup(threshold=threshold, top=top)
+        xlsx_out = model.write_excel(dtf_out)    
 else:
     st.write('')
