@@ -11,6 +11,10 @@ def get_table_download_link(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
     href = f'<a href="data:file/csv;base64,{b64}">Download csv file</a>'
+    st.write('AQUI 3')
+    st.write(href)
+    st.write('AQUI 4')
+
     
 """
 # Strings Matcher
@@ -49,7 +53,10 @@ if st.button('Submit'):
         model = StringMatcher(dtf_lookup, dtf_match)
         dtf_out = model.vlookup(threshold=threshold, top=top)
         xlsx_out = model.write_excel(dtf_out)        
+        
+        st.write('AQUI 1')
         st.markdown(get_table_download_link(dtf_out), unsafe_allow_html=True)
+        st.write('AQUI 2')
         dtf_out
         
         csv = dtf_out.to_csv(index=False)
