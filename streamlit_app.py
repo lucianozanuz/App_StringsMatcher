@@ -39,6 +39,6 @@ if st.button('Submit'):
         model = StringMatcher(dtf_lookup, dtf_match)
         dtf_out = model.vlookup(threshold=threshold, top=top)
         xlsx_out = model.write_excel(dtf_out)        
-        xlsx_out
+        dtf_out
 else:
     st.write('')
