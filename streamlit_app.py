@@ -33,7 +33,8 @@ if st.button('Submit'):
         #bytes_data = file_lookup.getvalue()
         #st.write(bytes_data)
 
-        dataframe = pd.read_excel(file_lookup["dtf_lookup"])
+        dataframe = pd.read_excel(file_lookup)
+        #dataframe = pd.read_excel(file_lookup["dtf_lookup"])
         #st.write(dataframe)
         st.write("entrou")
     else:
