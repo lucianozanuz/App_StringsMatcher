@@ -25,8 +25,6 @@ threshold = st.slider("Similarity threshold", 0.0, 1.0, 0.7, help="Minimum simil
 top = st.number_input("Enter a number", value=1, help="Maximum number of matches to return. If 1 it shows only the best match, if greater than 1 it shows multiple matches")
 
 if st.button('Submit'):
-    st.write(f'threshold = {threshold}')
-
     if file_lookup is not None:
         dtf_lookup = pd.read_excel(file_lookup)
     else:
@@ -38,18 +36,9 @@ if st.button('Submit'):
         st.write('file_match empty')
         
     if file_lookup is not None and file_match is not None:
-        #dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
-        #dtf_match = pd.read_excel(file_match["dtf_match"])
-
-        #dtf_lookup = pd.read_excel(flask.request.files["dtf_lookup"])
-        #dtf_match = pd.read_excel(flask.request.files["dtf_match"])
-        #threshold = float(flask.request.form["threshold"])
-        #top = 1 if flask.request.form["top"].strip() == "" else int(flask.request.form["top"])
-        #app.logger.warning("--- Inputs Received ---")
-
-        ## match
         model = StringMatcher(dtf_lookup, dtf_match)
         dtf_out = model.vlookup(threshold=threshold, top=top)
-        xlsx_out = model.write_excel(dtf_out)    
+        xlsx_out = model.write_excel(dtf_out)        
+        xlsx_out
 else:
     st.write('')
