@@ -33,7 +33,7 @@ file_match = st.file_uploader("Match list", help="List with values to match with
 
 st.subheader('Parâmetros')
 threshold = st.slider("Similarity threshold", 0.0, 1.0, 0.7, help="Minimum similarity score to return, it goes from 0 to 1. If 1 it works exactly like a Left-join or Vlookup")
-top = st.number_input("Enter a number", value=1, help="Maximum number of matches to return. If 1 it shows only the best match, if greater than 1 it shows multiple matches")
+top = st.number_input("Top", value=1, help="Maximum number of matches to return. If 1 it shows only the best match, if greater than 1 it shows multiple matches")
 
 if st.button('Submit'):
     if file_lookup is not None:
