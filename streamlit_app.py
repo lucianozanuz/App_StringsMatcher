@@ -34,17 +34,24 @@ if st.button('Submit'):
 
     if file_lookup is not None:
         file_lookup
+        
+        bytes_data = file_lookup.getvalue()
+        st.write(bytes_data)
+
         #dataframe = pd.read_excel(file_lookup["dtf_lookup"])
         #st.write(dataframe)
         st.write("entrou")
     else:
         st.write('aqui')
 
+    if file_match is not None:
+        file_match
+    else:
+        st.write('aqui 2')
+        
     #dtf_lookup = pd.read_excel(file_lookup["dtf_lookup"])
     #dtf_match = pd.read_excel(file_match["dtf_match"])
        
-    
-    
     #dtf_lookup = pd.read_excel(flask.request.files["dtf_lookup"])
     #dtf_match = pd.read_excel(flask.request.files["dtf_match"])
     #threshold = float(flask.request.form["threshold"])
